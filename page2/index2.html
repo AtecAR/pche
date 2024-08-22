@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード強度確認 - 入力</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: black;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+        .container {
+            margin-top: 100px;
+        }
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="password"], input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="passwordForm" onsubmit="return validateForm();">
+            <label for="password">よく使うパスワードを入力</label>
+            <input type="password" id="password" name="password" required><br>
+            
+            <label for="email">結果確認用メールアドレス</label>
+            <input type="email" id="email" name="email" required><br>
+            
+            <button type="submit" class="btn">強度を確かめる</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+            
+            if (password && email) {
+                // パスワードとメールアドレスが入力されているかを確認する
+                alert("パスワード: " + password + "\nメールアドレス: " + email);
+                window.location.href = "./page3/index3.html";
+                return false; // フォームのデフォルト送信を防ぐ
+            } else {
+                alert("パスワードとメールアドレスを入力してください。");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
